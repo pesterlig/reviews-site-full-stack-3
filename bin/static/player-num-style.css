@@ -1,0 +1,50 @@
+body {
+   background-color: #E8DBF5;  /*pale-periwinkle*/
+  color: #871C8E;  /*darkish-lavender*/
+}
+
+h1, p {
+   color:#5C03AA;  /*royal-purple-blue*/
+}
+
+@media screen and (min-width: 500px) {
+
+  /* no grid support? */
+  .sidebar {
+    background-color: #E8DBF5;  /*pale-periwinkle*/
+    color: #871C8E;  /*darkish-lavender*/
+  }
+
+  .content {
+    float: right;
+    width: 79.7872%;
+  }
+
+    
+}
+
+.wrapper > * {
+  background-color: #E8DBF5;  /*pale-periwinkle*/ 
+  color: #871C8E;  /*darkish-lavender*/
+  }
+
+  .header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+  }
+
+.wrapper > * {
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }

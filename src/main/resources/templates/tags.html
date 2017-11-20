@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Game</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="player-nums-style.css"/>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<h1>Tags</h1>
+		</header>
+		
+		<aside class="sidebar">
+			<img class="gamepic" src="images/finn-jake-game.jpg" alt="picture of game"/> 	
+		</aside>
+		
+		<article class="content">
+		<div class="tags"> 
+					<h2 th:each="tag: ${Tags}">
+					 <a th:href="@{/tag(id=${tag.id})}" th:text="${tag.tag}"></a>
+					 </h2>
+				</div>
+			
+		</article>
+		
+	</div> 
+	
+	<footer class="footer">	
+	
+		<small class="copyright">2017</small>
+		<h4>tags tags tags...</h4>
+		
+		
+						
+	</footer>
+			
+	  
+<script src="/app.js"></script>			
+</body>
+</html>

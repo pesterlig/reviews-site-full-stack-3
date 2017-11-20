@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Game</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="player-num-style.css"/>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<h2 th:text="${playerNum.playerNum}">(Number of Players)</h2>
+		</header>
+		
+		<aside class="sidebar"></aside>
+		
+		<article class="content">
+			<div class ="games">
+			 	<h3 th:each="currentGame:${playerNum.gamesOfPlayerNum}">
+			 		<a th:href="@{/game(id=${currentGame.id})}" th:text="${currentGame.title}"></a>
+			 	</h3>
+			</div>
+		</article>
+		
+		
+	<footer class="footer">	
+		<small class="copyright">2017</small>
+		<a href="http://localhost:8080/playerNums">Back</a>
+		
+	
+					
+	</footer>
+
+	</div>		
+	  
+<script src="/app.js"></script>			
+</body>
+</html>

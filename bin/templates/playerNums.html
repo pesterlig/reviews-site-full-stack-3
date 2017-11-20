@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Game</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="player-nums-style.css"/>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<h1>Great Board Games Review</h1>
+		</header>
+		
+		<aside class="sidebar">
+				<div class="playerNumChoice"> 
+					<h2 th:each="playerNum: ${playerNums}">
+					 <a th:href="@{/playerNum(id=${playerNum.id})}" th:text="${playerNum.playerNum}"></a>
+					 </h2>
+				</div>
+		</aside>
+		
+		<article class="content">
+			<img class="gamepic" src="images/finn-jake-game.jpg" alt="picture of game"/> 
+		</article>
+		
+	</div> 
+	
+	<footer class="footer">
+		
+		<small class="copyright">2017</small>
+		<h4>Cartoon Network's Finn and Jake enjoy a board game</h4>
+		
+		
+						
+	</footer>
+			
+	  
+<script src="/app.js"></script>			
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Game</title>
+	<link rel="stylesheet" type="text/css" href="normalize.css"/>
+	<link rel="stylesheet" type="text/css" href="layout.css"/>
+	<link rel="stylesheet" type="text/css" href="game-style.css"/>
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<h2 th:text="${game.title}">(Game Title)</h2>
+		</header>
+		
+		<aside class="sidebar">
+			<p>
+				<span> Time required to play: </span>
+				<span th:text="${game.minutesToPlay}"> (minutes) </span>
+			</p>
+		
+									
+			<p> 
+				<span> Challenge level: </span>
+				<span th:text="${game.challengeLevel}"> (level) </span>
+			</p>
+			
+			
+			<h3>Tags</h3>
+			
+			<div th:each="currentTag:${game.tags}">
+				<a class="tags" th:href="@{/tag(id=${currentTag.id})}" th:text="${currentTag.tag}"></a>
+			</div>
+			
+			<form method="POST">
+			<input name="id" type="hidden" th:value="${game.id}" />
+			<input type="text" name="name"/>
+			<button th:formaction="@{/add-tag}">Add Tag</button>
+			</form>
+			
+			<form class="remove" method="POST">
+			<input name="game-id" type="hidden" th:value="${game.id}" /> 
+			<!-- if the szhit broke this did it ^^^ -->
+			<input type="text" name="tag"/>
+			<button th:formaction="@{/remove-tag}">Remove Tag</button>
+			</form>
+		
+			<h3>Review</h3>
+			<p th:text="${game.review}"> (This game is the ****!) </p>
+			
+		</aside>
+		
+		<article class="content">
+			<img class="gamepic" th:src="${game.getImgUrl()}" width="600px" alt="picture of game"/> 
+			<h5>
+				<span> Image source: </span>
+				<span th:text="${game.imgSource}"> (level) </span>
+			</h5>
+			<form id="new-comment" name="new-comment" method="POST">
+				<input type="text" name="comment" id="comment"/>
+				<button type="submit" form="new-comment" value="Submit">Add Comment</button>
+			</form>
+			
+			<div id="comments">
+			
+			</div>
+			
+		</article>
+		
+	</div> 
+	
+	<footer class="footer">	
+		
+		<a th:href="@{http://localhost:8080/playerNum(id=${game.playerNum.id})}">Back</a>
+		<small class="copyright">2017</small>
+		
+		
+						
+	</footer>
+			
+<script src="/app.js"></script>	  
+			
+</body>
+</html>

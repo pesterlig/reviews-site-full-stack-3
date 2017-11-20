@@ -1,0 +1,63 @@
+body {
+   background-color: #B5BAB2;  /*pale grey*/
+  color:  #871C8E  /*darkish-lavender*/
+}
+
+h1, p {
+   color:#111403;  /*dark-olive-green*/
+}
+
+.tags {
+	color: #AAA358; /*dull-gold*/
+}
+
+@media screen and (min-width: 500px) {
+
+  /* no grid support? */
+  .sidebar {
+    background-color: #871C8E  /*darkish-lavender*/
+    color: #C5C7BB;  /*light-green-gray*/
+  }
+
+  .content {
+  
+    float: right;
+    width: 79.7872%;
+
+  }
+
+  .content.gamepic {
+    
+    max-height:60px;
+    width:auto;
+  }
+
+  
+}
+
+.wrapper > * {
+  background-color: #5C03AA;
+  color: #B5BAB2;
+  }
+
+  .header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+  }
+
+.wrapper > * {
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}

@@ -1,0 +1,57 @@
+body {
+  background: url(Finn-Jake-gaming.png) no-repeat center fixed; 
+  background-size: cover;
+  color: #5C03AA;  /*royal-blue-purple*/
+}
+
+h1, p {
+   color:#5C03AA;  /*royal-blue-purple*/
+}
+
+@media screen and (min-width: 500px) {
+
+  /* no grid support? */
+  .sidebar {
+    background-color: #871C8E  /*darkish-lavender*/
+    color: #F3FFC0;  /*golden-white*/
+  }
+
+  .content {
+    float: right;
+    width: 79.7872%;
+  }
+
+  .content.gamepic {
+    width: 79.7872%
+    max-width: 800px
+    height:auto;
+  }
+
+  
+}
+
+.wrapper > * {
+  background-color: #F3FFC0;  /*golden-white*/
+  color: #5C03AA;  /*royal-blue-purple*/
+  }
+
+  .header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+  }
+
+.wrapper > * {
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
